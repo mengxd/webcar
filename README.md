@@ -1,6 +1,6 @@
 # Web Car Project
 
-Usage: Browse http://<raspberrypi3> on a client device to get access to the toy car.  
+Usage: Visit the web server hosted on the raspberry pi 3 from a client device to get access to the toy car.  
 
 ## Topology
 Client:
