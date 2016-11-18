@@ -8,7 +8,13 @@ Client:
 
 Toy Car:
   Motor === L293D(stacked with Arduino) === Ardunio (UNO or Mega, connected with Pi via USB) 
-  === Raspberry Pi 3 === WiFi AP
+  === Raspberry Pi 3(runs webcar node.js app and the car.py program) === WiFi AP
+
+-The L293D controls the movement and speed of the DC motors, which in turn drives the car 
+-The Arduino receives command from the serial and instructs L293D motor controller to take corresponding actions 
+-The car.py communicates with Arduino via the serial interface over USB connection.
+-The car.py communicate with webcar node.js App via the WebSocket
+-And the operator controls the toycar from the web UI exposed by webcar node.js App
 
 ## Run the app locally
 
