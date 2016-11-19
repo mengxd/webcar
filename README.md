@@ -23,18 +23,18 @@ Toy Car:
 ## Run the app locally
 
 1. [Install Node.js][]
-2. Download and extract the starter code from the Bluemix UI
-3. cd into the app directory
+2. Download and extract the starter code and extract to /home/pi/work/
+3. cd into the webcar directory
 4. Run `npm install` to install the app's dependencies
-5. Run `npm start` to start the app
-6. Run `python car.py` to start the python program that receives input and sends command to Arduino
-7. Access the running app in a browser at http://192.168.2.102
+5. modify /etc/rc.local to start /home/pi/work/webcar/startApp.sh on reboot
+6. Turn on your mobile phone's Wifi into hotspot mode (no need to turn on mobile 3G/4G to use your data plan)
+7. Turn on your raspberry Pi 3 and check its IP address from your mobile phone hotspot management UI
+7. Navigate to the website hosted on your raspberry pi 3 and enjoy it.
 
 [Install Node.js]: https://nodejs.org/en/download/
 
 ## TODO
 
 1. Improve the webpage to allow the direct mouse click on the direction panel
-2. Improve the program to allow peer-to-peer communication between the client device and the raspberry Pi to get rid of
-the dependency on a Wi-Fi AP.
+2. Create a mobile Android App to control the toycar
 3. Add more control logic to allow more intelligent control of the toy car (e.g. add in sensor to detect road blocker...)
