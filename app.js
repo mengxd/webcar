@@ -4,6 +4,23 @@
 // node.js starter application for Bluemix
 //------------------------------------------------------------------------------
 
+function getExternalIP()
+{
+        var os = require('os');
+        var ext_ip = '';
+        var interfaces = os.networkInterfaces();
+        for (var k in interfaces) {
+                for (var k2 in interfaces[k]) {
+                	var address = interfaces[k][k2];
+                	if (address.family === 'IPv4' && !address.internal) {
+                        	ext_ip = address.address;
+                        	break;
+                	}
+        	}
+	}
+        return ext_ip;
+}
+
 // This application uses express as its web server
 // for more info, see: http://expressjs.com
 var express = require("express");
@@ -75,7 +92,10 @@ io.on("connection",function(socket){
   // print a message when the server starts listening
   console.log("server starting on " + appEnv.url);
 });*/
-http.listen(80, "192.168.2.102", function() {
+
+var externalIP = getExternalIP();
+ 
+http.listen(80, externalIP, function() {
   // print a message when the server starts listening
-  console.log("server started ");
+  console.log("server started on %s",externalIP);
 });
