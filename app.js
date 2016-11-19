@@ -1,7 +1,7 @@
 ﻿/*eslint-env node, express*/
 
 //------------------------------------------------------------------------------
-// node.js starter application for Bluemix
+// node.js starter application for Toycar
 //------------------------------------------------------------------------------
 
 function getExternalIP()
