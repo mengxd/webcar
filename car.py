@@ -2,9 +2,17 @@
 
 from socketIO_client import SocketIO
 import serial
+import socket
+import fcntl
+import struct
+
 # import time
 # import random
 
+def get_ip_address(ifname):
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        return socket.inet_ntoa(fcntl.ioctl(s.fileno(),0x8915,  # SIOCGIFADDR
+                                struct.pack('256s', ifname[:15]) )[20:24])
 
 class RCControl():
 
@@ -52,7 +60,8 @@ def main():
 
     steer1 = RCControl()
     newObj = SocketClass()
-    socketIO = SocketIO('192.168.2.102', 80)
+    ipaddr = get_ip_address('wlan0')
+    socketIO = SocketIO(ipaddr, 80)
     socketIO.on('message', newObj.getSocket)
     socketIO.wait()
 
